@@ -1,6 +1,6 @@
 # 7rs.github.io
 
-> My laudable Nuxt.js project
+> My doozie Nuxt.js project
 
 ## Build Setup
 
