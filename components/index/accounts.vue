@@ -1,15 +1,13 @@
 <template>
-  <v-footer fixed app>
-    <v-row>
-      <v-col v-for="item in items" :key="item.title">
-        <v-layout justify-center>
-          <v-btn text icon :href="item.url">
-            <v-icon>mdi-{{item.icon}}</v-icon>
-          </v-btn>
-        </v-layout>
-      </v-col>
-    </v-row>
-  </v-footer>
+  <v-row>
+    <v-col v-for="item in items" :key="item.title">
+      <v-layout justify-center>
+        <v-btn text icon :href="item.url">
+          <v-icon>mdi-{{ item.icon }}</v-icon>
+        </v-btn>
+      </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
