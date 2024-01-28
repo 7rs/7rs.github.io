@@ -1,0 +1,19 @@
+name: "Bug Report"
+description: "A template for bug reports."
+title: "[Bug]: "
+labels: ["hotfix: bug"]
+body:
+  - type: textarea
+    attributes:
+      label: "Information"
+      description: "Please paste package, software and hardware logs."
+      render: Shell
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Bug description"
+      description: "Please explain bugs whenever possible."
+      placeholder: "If you have any images or videos, please include them."
+    validations:
+      required: true

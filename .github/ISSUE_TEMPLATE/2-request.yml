@@ -1,0 +1,12 @@
+name: "Request"
+description: "A Feature suggestion or request."
+title: "[Feature]: "
+labels: ["develop: feature", "contribute: ideas/request"]
+body:
+  - type: textarea
+    attributes:
+      label: "Feature description"
+      description: "Please explain features whenever possible."
+      placeholder: "If you have any images or videos, please include them."
+    validations:
+      required: true

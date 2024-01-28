@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Use Discussions
+    url: https://github.com/7rs/template/discussions
+    about: If you have any questions and other, you can use Discussions.
