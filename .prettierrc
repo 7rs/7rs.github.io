@@ -1,0 +1,14 @@
+{
+    "printWidth": 120,
+    "bracketSameLine": true,
+    "options.editorconfig": true,
+    "plugins": ["prettier-plugin-astro", "prettier-plugin-svelte", "prettier-plugin-stylus"],
+    "overrides": [
+        {
+            "files": ["*.ts", "*.js", "*.mjs"],
+            "options": {
+                "singleQuote": true
+            }
+        }
+    ]
+}
