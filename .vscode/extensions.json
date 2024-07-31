@@ -8,6 +8,7 @@
         "astro-build.astro-vscode",
         "biomejs.biome",
         "unifiedjs.vscode-mdx",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "redhat.vscode-yaml"
     ]
 }
