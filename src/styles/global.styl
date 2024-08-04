@@ -1,0 +1,105 @@
+paddings(l, r, t, b)
+  padding-left l
+  padding-right r
+  padding-top t
+  padding-bottom b
+
+margins(l, r, t, b)
+  margin-left l
+  margin-right r
+  margin-top t
+  margin-bottom b
+
+:root
+  --main-color rgb(32, 32, 96)
+  --sub-color rgb(224, 224, 255)
+  --success-color rgb(32, 255, 92)
+  --failed-color rgb(255, 32, 92)
+  --warning-color rgb(255, 255, 92)
+
+  --main-shadow rgba(32, 32, 96, 0.5)
+  --sub-shadow rgba(224, 224, 255, 0.5)
+
+  --success-hover rgb(255, 128, 92)
+  --failed-hover rgb(32, 0, 255)
+  --warning-hover rgb(224, 32, 255)
+
+  --icon-size 1.5rem
+
+:where(*)
+  paddings(0, 0, 0, 0)
+  margins(0, 0, 0, 0)
+
+:where(body)
+  font-size 16px
+  box-sizing border-box
+
+  :where(a)
+    display block
+    text-decoration none
+
+  :where(button)
+    display block
+    border none
+    background-color transparent
+
+.style-transition
+  &, &:hover
+    transition all 150ms ease-in-out
+
+  &:active
+    box-shadow inset 0 0 0.5rem rgba(128, 128, 128, 0.5)
+
+.style-default
+  @extend .style-transition
+
+  background var(--main-color)
+  color var(--sub-color)
+
+.style-default-hover
+  @extend .style-default
+
+  &:hover
+    background var(--sub-color)
+    color var(--main-color)
+
+.style-reverse
+  @extend .style-transition
+
+  background var(--sub-color)
+  color var(--main-color)
+
+.style-reverse-hover
+  @extend .style-reverse
+
+  &:hover
+    background var(--main-color)
+    color var(--sub-color)
+
+.style-success
+  @extend .style-reverse
+  background var(--success-color)
+
+.style-success-hover
+  @extend .style-success
+
+  &:hover
+    background var(--success-hover)
+
+.style-failed
+  @extend .style-reverse
+  background var(--failed-color)
+
+.style-failed-hover
+  @extend .style-failed
+  &:hover
+    background var(--failed-hover)
+
+.style-warning
+  @extend .style-reverse
+  background var(--warning-color)
+
+.style-warning-hover
+  @extend .style-warning
+  &:hover
+    background var(--warning-hover)

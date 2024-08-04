@@ -1,0 +1,78 @@
+---
+export interface Props {
+  title: string;
+  progresses: { [label: string]: number };
+}
+
+const { title, progresses } = Astro.props;
+
+function getPercentageStatus(percentage: number) {
+  if (percentage >= 80) {
+    return "very-high";
+  } else if (percentage >= 60) {
+    return "high";
+  } else if (percentage >= 40) {
+    return "medium";
+  }
+
+  return "low";
+}
+---
+
+<article class="p-4 rounded-md">
+  <h2 class="text-center pb-4">{title}</h2>
+  <div class="flex flex-col gap-2 w-full progress-list">
+    {
+      Object.keys(progresses).map((label) => (
+        <div class="px-4 py-2 flex justify-between text-xl rounded-md" data-percentage-status={getPercentageStatus(progresses[label])}>
+          <span class="rounded-md" style={`width: ${progresses[label]}%`} />
+          <p>{label}</p>
+          <p>{progresses[label]}%</p>
+        </div>
+      ))
+    }
+  </div>
+</article>
+
+<style lang="stylus">
+  article
+    font-family monospace
+    border solid 1px var(--main-color)
+
+  .progress-list
+    div
+      position relative
+
+      span
+        position absolute
+        top 0
+        left 0
+        content ""
+        height 100%
+
+      p
+        z-index 1
+        color var(--sub-color)
+        text-shadow 0 0 4px var(--main-color)
+        font-weight bold
+
+      &[data-percentage-status="very-high"]
+        background-color rgb(192, 128, 128)
+        span
+          background-color rgb(255, 128, 128)
+
+      &[data-percentage-status="high"]
+        background-color rgb(192, 160, 128)
+        span
+          background-color rgb(255, 192, 128)
+
+      &[data-percentage-status="medium"]
+        background-color rgb(128, 192, 128)
+        span
+          background-color rgb(128, 255, 128)
+
+      &[data-percentage-status="low"]
+        background-color rgb(128, 128, 192)
+        span
+          background-color rgb(128, 128, 255)
+</style>

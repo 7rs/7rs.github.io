@@ -1,0 +1,31 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+import "@styles/global.styl";
+
+import Header from "@layouts/Header.astro";
+import Footer from "@layouts/Footer.astro";
+
+export interface Props {
+  title: string;
+  lang?: string;
+  className?: string;
+  siteName?: string;
+}
+
+const { title, lang = "en", className, siteName = "The log" } = Astro.props;
+---
+
+<html {lang}>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>{title} | {siteName}</title>
+    <ViewTransitions fallback="animate" />
+  </head>
+  <body class="flex flex-col h-full min-h-dvh">
+    <Header />
+    <main class:list={["flex-grow flex flex-col items-center", className || ""]}><slot /></main>
+    <Footer />
+  </body>
+</html>

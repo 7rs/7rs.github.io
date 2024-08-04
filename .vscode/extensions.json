@@ -9,6 +9,7 @@
         "biomejs.biome",
         "unifiedjs.vscode-mdx",
         "dbaeumer.vscode-eslint",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "antfu.unocss"
     ]
 }

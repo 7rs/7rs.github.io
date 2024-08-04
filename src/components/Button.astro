@@ -1,0 +1,19 @@
+---
+import { Styles } from "@scripts/style.ts";
+
+export interface Props {
+  href: string;
+  style?: Styles;
+}
+
+const { href, style = Styles.Default } = Astro.props;
+---
+
+<a class:list={["py-1 px-4 text-2xl rounded-md", `style-${style}-hover`]} data-style={style} {href}>
+  <slot />
+</a>
+
+<style lang="stylus">
+  a
+    font-family monospace
+</style>

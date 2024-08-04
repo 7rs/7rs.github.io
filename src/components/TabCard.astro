@@ -1,0 +1,12 @@
+---
+export interface Props {
+  title: string;
+}
+
+const {title} = Astro.props;
+---
+
+<article data-tab-name={title}>
+  <h2>{title}</h2>
+  <p><slot /></p>
+</article>

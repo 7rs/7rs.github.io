@@ -1,0 +1,70 @@
+---
+import Main from "@layouts/Main.astro";
+
+import Button from "@components/Button.astro";
+import ActionMenu from "@components/ActionMenu.svelte";
+import Tabs from "@components/Tabs.svelte";
+import TabCard from "@components/TabCard.astro";
+import Compare from "@components/Compare.astro";
+---
+
+<Main className="py-12 gap-24" title="Components">
+  <hgroup class="flex flex-col gap-2 text-center">
+    <h1 class="text-5xl">Components</h1>
+    <h2 class="text-3xl">Could you like see my components?</h2>
+  </hgroup>
+
+  <section class="flex flex-col gap-4">
+    <div class="flex gap-2 justify-center">
+      <Button href="#">First,</Button>
+      <Button href="#" style="reverse">The</Button>
+      <Button href="#">Buttons.</Button>
+    </div>
+    <div class="flex gap-2 justify-center">
+      <Button href="#" style="success">That Said,</Button>
+      <Button href="#" style="failed">Those're</Button>
+      <Button href="#" style="warning">Just Links.</Button>
+    </div>
+  </section>
+
+  <section class="flex flex-col gap-4">
+    <ActionMenu client:load opened />
+    <ActionMenu client:load axis="y" />
+  </section>
+
+  <section style="width: 600px; font-family: monospace">
+    <Tabs client:only="svelte">
+      <TabCard title="Compatibility">
+        Implemented tabs feature with Svelte, but can put anything as content of a tab.
+      </TabCard>
+      <TabCard title="Easy">
+        Performance has fucked a bit, but it's freedom and easy.
+      </TabCard>
+      <TabCard title="Digression">
+        Didn't implemented animation. Because I don't know whether dynamic contents included, and I believed it will
+          be complicated. It's hassle, but then if implement for each tab, animation is available.
+      </TabCard>
+    </Tabs>
+  </section>
+
+  <section style="width: 600px">
+    <Compare
+      title="What do y'all wanna compare?"
+      progresses={{
+        "Speed?": 87,
+        "Design also is important.": 65,
+        "Maybe UX?": 43,
+        "Not to mention security.": 21,
+      }}
+    />
+  </section>
+</Main>
+
+<style lang="stylus">
+  hgroup
+    font-family monospace
+    h1, h2
+      background-clip text
+      color transparent
+      background-image linear-gradient(20deg, rgb(0,0,0) 0%, rgb(32,32,32) 25%, rgb(128,128,128) 100%);
+</style>
